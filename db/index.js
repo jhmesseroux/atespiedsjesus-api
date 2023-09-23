@@ -4,11 +4,11 @@ const { Sequelize } = require('sequelize')
 exports.connect = (file) => new sqlite3.Database(`./db/${file}`)
 
 exports.dbConnect = new Sequelize({
+  host: process.env.DB_HOST,
   dialect: 'mysql',
   logging: process.env.NODE_ENV === 'development',
   database: process.env.DB_NAME,
-  host: process.env.DB_HOST,
-  username: process.env.DB_USERNAmE,
+  username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
   define: {
     timestamps: false,

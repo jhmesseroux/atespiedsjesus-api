@@ -38,7 +38,7 @@ module.exports = (err, req, res, next) => {
   err.status = err.status || 'error'
 
   let error = Object.assign(err)
-  // console.log(error);
+  // console.log(error)
   if (error.name === 'SequelizeAccessDeniedError') error = handleSequelizeAccessDeniedError(req)
   if (error.name === 'JsonWebTokenError') error = handleJsonWebTokenError(req)
   if (error.name === 'TokenExpiredError') error = handleJWTExpiredToken(req)

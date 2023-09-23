@@ -52,9 +52,7 @@ exports.uploadUserPhoto = catchAsync(async (req, res, next) => {
   if (!req.body.photo) return next(new AppError('Please provide a photo', 400))
   const user = await User.findByPk(req.user.id)
   if (!user) return next(new AppError('The user does no longer exist', 401))
-  console.log('entro.....')
   const resp = await uploadPhoto(req.body.photo, 'ATESPIEDSJESUS/USERS', slugify(user.username, { lower: true }) + '_' + user.id + '_' + user.role)
-  console.log('RES CLOUNDINAY :: ', resp)
   if (resp.error) return next(new AppError(resp.error.message, 400))
   user.photo = resp.secure_url
   await user.save()

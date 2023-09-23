@@ -45,7 +45,6 @@ exports.signIn = catchAsync(async (req, res, next) => {
 })
 
 exports.protect = catchAsync(async (req, res, next) => {
-  console.log('token :: ', req.headers.authorization)
   let token
   if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) token = req.headers.authorization.split(' ')[1]
   if (!token) return next(new AppError(responses.notLogged[req.headers.language || process.env.DEFAULT_LANGUAGE], 401))

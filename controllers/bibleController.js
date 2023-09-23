@@ -188,7 +188,6 @@ exports.searchByBookChapter_Verse = catchAsync(async (req, res) => {
   const chapter = v[1]
   // verses = v[2];
   // if(verses.length > 0){}
-  // console.log(verses);
 
   // return;
   connect(lan.file).all(

@@ -17,7 +17,6 @@ const uploadPhoto = async (file, folder, publicId = undefined, format = 'png') =
     })
     return res
   } catch (error) {
-    // console.log('ERROR INSIDE:: ', error)
     return error
   }
 }

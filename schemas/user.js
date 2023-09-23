@@ -73,10 +73,6 @@ const User = dbConnect.define(
         len: {
           args: [6, 20],
           msg: 'Password must be between 6 and 20 characters'
-        },
-        is: {
-          args: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/,
-          msg: 'Password must contain at least one uppercase letter, one lowercase letter and one number'
         }
       }
 
